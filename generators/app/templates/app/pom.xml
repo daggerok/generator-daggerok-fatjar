@@ -6,7 +6,7 @@
 
   <groupId>daggerok</groupId>
   <version>0.0.1</version>
-  <artifactId><%= projectName %></artifactId>
+  <artifactId><%= projectDirectory %></artifactId>
   <packaging>jar</packaging>
 
   <properties>
