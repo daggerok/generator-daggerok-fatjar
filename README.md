@@ -14,10 +14,31 @@ Then generate your new project:
 
 ```bash
 yo daggerok-fatjar
+# enter projectDirectory or just press enter
 cd $projectDirectory
-idea .
-bash mvnw
+```
+
+using gradle
+
+```bash
+idea build.gradle
 bash gradlew
+```
+
+using maven
+
+```bash
+idea pom.xml
+bash mvnw
+```
+
+docker-compose
+
+```bash
+# gradle
+bash gradlew composeUp
+# maven
+bash mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up
 ```
 
 ## Getting To Know Yeoman
