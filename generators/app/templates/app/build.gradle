@@ -1,0 +1,58 @@
+buildscript {
+  ext {
+    lombokVersion = "1.16.18"
+    slf4jVersion = "1.7.25"
+    javaVersion = "1.8"
+  }
+}
+
+plugins {
+  id "application"
+  id "com.github.johnrengelman.shadow" version "2.0.2"
+  id "com.avast.gradle.docker-compose" version "0.6.12"
+}
+
+apply plugin: "java"
+apply plugin: "maven"
+
+group = "daggerok"
+version = "0.0.1"
+sourceCompatibility = targetCompatibility = "$javaVersion"
+
+mainClassName = "daggerok.App"
+shadowJar.mustRunAfter jar
+
+defaultTasks "clean", "build"
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+}
+
+dependencies {
+  compile "org.slf4j:slf4j-api:$slf4jVersion"
+  // compile "org.slf4j:slf4j-jdk14:$slf4jVersion"
+  compile "org.slf4j:jul-to-slf4j:$slf4jVersion"
+  compile "org.slf4j:log4j-over-slf4j:$slf4jVersion"
+  compile "ch.qos.logback:logback-classic:1.2.3"
+  compileOnly "org.projectlombok:lombok:$lombokVersion"
+  testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+}
+
+dockerCompose {
+  useComposeFiles = [project.file("docker-compose-gradle.yaml")]
+  captureContainersOutput = true
+  stopContainers = true
+  removeContainers = true
+  removeImages = "Local"
+  removeVolumes = true
+  removeOrphans = true
+  projectName = project.name
+}
+
+composeUp.dependsOn assemble
+
+task wrapper(type: Wrapper) {
+  gradleVersion = "4.5"
+  distributionType = "ALL"
+}
