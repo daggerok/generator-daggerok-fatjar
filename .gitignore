@@ -4,6 +4,7 @@ coverage
 *.iml
 *.ipr
 *.iws
+*.log*
 .gradle/
 target/
 build/
