@@ -47,6 +47,8 @@ module.exports = class extends Generator {
       'pom.xml',
       'README.adoc',
       'settings.gradle',
+      'docker-compose-gradle.yaml',
+      'docker-compose-maven.yaml',
 
     ].forEach(path => this.fs.copyTpl(
       this.templatePath(`app/${path}`),

@@ -2,10 +2,10 @@ version: "2.1"
 
 services:
 
-  gradle-app:
+  gradle-<%= projectDirectory %>-app:
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./gradle/Dockerfile
     volumes: ["gradle-app-data:/home/appuser"]
     networks: [backing-services]
 #    ports: ["8080:8080"]

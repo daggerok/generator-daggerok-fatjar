@@ -3,18 +3,31 @@ node_js:
 - lts/*
 - v9
 - v8
+- v7
 - v6
 install: true
-before_script:
-- sudo apt update -y || true
-- sudo apt install --no-install-recommends -y curl
-- curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-- echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-- sudo apt update -y || true
-- sudo apt install --no-install-recommends -y yarn
-script: yarn -i
-after_script: cat ./coverage/lcov.info | coveralls
+#before_script:
+#- sudo apt update -y || true
+#- sudo apt install --no-install-recommends -y curl
+#- curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+#- echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+#- sudo apt update -y || true
+#- sudo apt install --no-install-recommends -y yarn
+script:
+- export root=$(pwd)
+# test old
+- mkdir /tmp/yo
+- cd /tmp/yo
+- npm i -g add yo generator-daggerok-fatjar
+- echo old-version | yo daggerok-fatjar
+# test new
+- cd ${root}
+- npm i
+- npm link
+- cd /tmp/yo
+- echo new-version | yo daggerok-fatjar
 cache:
+  npm: true
   yarn: true
   directories:
   - node_modules
