@@ -34,12 +34,12 @@ module.exports = class extends Generator {
     const projectDirectory = safety(this.props.projectDirectory);
 
     [
-      'app/**/*',
-      'app/**/.*',
-      'app/.*/**/*',
+      '**/*',
+      '**/.*',
+      '.*/**/*',
 
     ].forEach(pattern => this.fs.copy(
-      this.templatePath(pattern),
+      this.templatePath(`java/${pattern}`),
       this.destinationPath(`${projectDirectory}`)
     ));
 
@@ -51,7 +51,7 @@ module.exports = class extends Generator {
       'docker-compose-maven.yaml',
 
     ].forEach(path => this.fs.copyTpl(
-      this.templatePath(`app/${path}`),
+      this.templatePath(`java/${path}`),
       this.destinationPath(`${projectDirectory}/${path}`),
       { projectDirectory }
     ));
