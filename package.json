@@ -1,6 +1,6 @@
 {
   "name": "generator-daggerok-fatjar",
-  "version": "0.2.17",
+  "version": "0.2.18",
   "description": "Generate fat-jar java project",
   "homepage": "https://daggerok.github.io/generator-daggerok-fatjar",
   "author": {
