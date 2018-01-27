@@ -3,6 +3,10 @@ const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 
+function safety(input) {
+  return input.replace(/\W+/g, '_') || 'app';
+}
+
 module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
@@ -27,7 +31,7 @@ module.exports = class extends Generator {
 
   writing() {
 
-    const projectDirectory = this.props.projectDirectory;
+    const projectDirectory = safety(this.props.projectDirectory);
 
     [
       'app/**/*',
@@ -53,7 +57,7 @@ module.exports = class extends Generator {
 
   install() {
 
-    const projectDirectory = this.props.projectDirectory;
+    const projectDirectory = safety(this.props.projectDirectory);
 
     this.log(`# import project and start hacking!`);
     this.log(`cd ./${projectDirectory}/`);
