@@ -1,6 +1,6 @@
 {
   "name": "generator-daggerok-fatjar",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Generate fat-jar java project",
   "homepage": "https://daggerok.github.io/generator-daggerok-fatjar",
   "author": {
@@ -8,9 +8,13 @@
     "email": "daggerok@gmail.com",
     "url": "https://github.com/daggerok"
   },
-  "files": ["generators"],
+  "files": [
+    "generators"
+  ],
   "main": "index.js",
-  "keywords": ["yeoman-generator"],
+  "keywords": [
+    "yeoman-generator"
+  ],
   "devDependencies": {
     "yeoman-generator": "2.0.2",
     "yeoman-test": "1.7.0",
