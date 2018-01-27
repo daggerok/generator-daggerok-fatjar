@@ -10,15 +10,6 @@ module.exports = class extends Generator {
       'Welcome to the terrific ' + chalk.red('daggerok-fatjar') + ' generator!'
     ));
 
-/*
-    const prompts = [{
-      type: 'confirm',
-      name: 'someAnswer',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
-*/
-
     const prompts = [
       {
         type: 'input',
@@ -38,33 +29,36 @@ module.exports = class extends Generator {
 
     const projectDirectory = this.props.projectDirectory;
 
-    this.fs.copy(
-      this.templatePath('app/**/*'),
-      this.destinationPath(`${projectDirectory}`)
-    );
+    [
+      'app/**/*',
+      'app/**/.*',
+      'app/.*/**/*',
 
-    this.fs.copy(
-      this.templatePath('app/**/.*'),
+    ].forEach(pattern => this.fs.copy(
+      this.templatePath(pattern),
       this.destinationPath(`${projectDirectory}`)
-    );
+    ));
 
-    this.fs.copy(
-      this.templatePath('app/.*/**/*'),
-      this.destinationPath(`${projectDirectory}`)
-    );
+    [
+      'pom.xml',
+      'README.adoc',
+      'settings.gradle',
+
+    ].forEach(path => this.fs.copyTpl(
+      this.templatePath(`app/${path}`),
+      this.destinationPath(`${projectDirectory}/${path}`),
+      { projectDirectory }
+    ));
   }
 
   install() {
 
     const projectDirectory = this.props.projectDirectory;
 
-    // this.installDependencies({
-    //   bower: false,
-    //   yarn: false,
-    // });
-
-    this.log(yosay(
-      `idea ./${projectDirectory} import project and start hacking!`
-    ));
+    this.log(`# import project and start hacking!`);
+    this.log(`cd ./${projectDirectory}/`);
+    this.log(`bash gradlew && idea build.gradle`);
+    this.log(`# or`);
+    this.log(`bash mvnw && idea pom.xml`);
   }
 };
