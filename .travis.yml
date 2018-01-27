@@ -1,9 +1,9 @@
 language: node_js
 node_js:
-  - v9
-  - v8
-  - v6
-  - v4
+- lts/*
+- v9
+- v8
+- v6
 install: true
 before_script:
 - sudo apt update -y || true
