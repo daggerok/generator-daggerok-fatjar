@@ -21,6 +21,12 @@ module.exports = class extends Generator {
         message: 'Enter project directory',
         default: 'app'
       },
+      {
+        type: 'confirm',
+        name: 'isScalaSupported',
+        message: 'Would you like supports scala?',
+        default: false
+      },
     ];
 
     return this.prompt(prompts).then(props => {
@@ -32,6 +38,7 @@ module.exports = class extends Generator {
   writing() {
 
     const projectDirectory = safety(this.props.projectDirectory);
+    const projectType = this.props.isScalaSupported ? 'scala' : 'java';
 
     [
       '**/*',
@@ -39,7 +46,7 @@ module.exports = class extends Generator {
       '.*/**/*',
 
     ].forEach(pattern => this.fs.copy(
-      this.templatePath(`java/${pattern}`),
+      this.templatePath(`${projectType}/${pattern}`),
       this.destinationPath(`${projectDirectory}`)
     ));
 
@@ -51,10 +58,15 @@ module.exports = class extends Generator {
       'docker-compose-maven.yaml',
 
     ].forEach(path => this.fs.copyTpl(
-      this.templatePath(`java/${path}`),
+      this.templatePath(`${projectType}/${path}`),
       this.destinationPath(`${projectDirectory}/${path}`),
       { projectDirectory }
     ));
+
+    this.fs.copy(
+      this.templatePath(`fuck/gitignore`),
+      this.destinationPath(`${projectDirectory}/.gitignore`)
+    );
   }
 
   install() {

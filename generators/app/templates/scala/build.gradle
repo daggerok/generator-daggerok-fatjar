@@ -3,12 +3,16 @@ buildscript {
     lombokVersion = "1.16.18"
     slf4jVersion = "1.7.25"
     javaVersion = "1.8"
+    scalaCompatVersion = "2.11"
+    scalaVersion = "${scalaCompatVersion}.8"
+    scalatestVersion = "${scalaCompatVersion}:3.0.4"
   }
 }
 
 plugins {
   id "idea"
   id "java"
+  id "scala"
   id "maven"
   id "eclipse"
   id "application"
@@ -41,6 +45,12 @@ dependencies {
 
   testCompile "junit:junit:4.12"
   testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+
+  compile "org.scala-lang:scala-library:$scalaVersion"
+
+  testCompile "org.scalactic:scalactic_$scalatestVersion"
+  testCompile "org.scalatest:scalatest_$scalatestVersion"
+  testCompile "org.specs2:specs2-junit_${scalaCompatVersion}:3.7"
 }
 
 dockerCompose {
