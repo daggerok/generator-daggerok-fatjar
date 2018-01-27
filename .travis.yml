@@ -26,8 +26,8 @@ script:
 - npm link
 - cd /tmp/yo
 - echo new-version | yo daggerok-fatjar
-cache:
-  npm: true
-  yarn: true
-  directories:
-  - node_modules
+#cache:
+#  npm: true
+#  yarn: true
+#  directories:
+#  - node_modules
