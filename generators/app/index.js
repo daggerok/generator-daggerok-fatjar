@@ -4,7 +4,8 @@ const chalk = require('chalk');
 const yosay = require('yosay');
 
 function safety(input) {
-  return input.replace(/\W+/g, '-') || 'app';
+  return (input.replace(/\W+/g, '-') || 'app').trim()
+                                              .toLocaleLowerCase();
 }
 
 module.exports = class extends Generator {
