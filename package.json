@@ -1,6 +1,6 @@
 {
   "name": "generator-daggerok-fatjar",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generate fat-jar java project",
   "homepage": "https://daggerok.github.io/generator-daggerok-fatjar",
   "author": {
@@ -8,13 +8,9 @@
     "email": "daggerok@gmail.com",
     "url": "https://github.com/daggerok"
   },
-  "files": [
-    "generators"
-  ],
+  "files": ["generators"],
   "main": "index.js",
-  "keywords": [
-    "yeoman-generator"
-  ],
+  "keywords": ["yeoman-generator"],
   "devDependencies": {
     "yeoman-generator": "2.0.2",
     "yeoman-test": "1.7.0",
@@ -46,20 +42,11 @@
     "test": "jest"
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.js": ["eslint --fix", "git add"],
+    "*.json": ["prettier --write", "git add"]
   },
   "eslintConfig": {
-    "extends": [
-      "xo",
-      "prettier"
-    ],
+    "extends": ["xo", "prettier"],
     "env": {
       "jest": true,
       "node": true
@@ -73,9 +60,7 @@
         }
       ]
     },
-    "plugins": [
-      "prettier"
-    ]
+    "plugins": ["prettier"]
   },
   "repository": "daggerok/generator-daggerok-fatjar"
 }
