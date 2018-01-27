@@ -4,7 +4,7 @@ const chalk = require('chalk');
 const yosay = require('yosay');
 
 function safety(input) {
-  return input.replace(/\W+/g, '_') || 'app';
+  return input.replace(/\W+/g, '-') || 'app';
 }
 
 module.exports = class extends Generator {
