@@ -41,6 +41,28 @@ bash gradlew composeUp
 bash mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up
 ```
 
+## What's inside?
+
+java project:
+
+ * java 8 based project
+ * lombok (slf4j + logback logging)
+ * support fatjar
+ * support maven
+ * support gradle
+ * supports testing junit 4 / 5
+ * docker / docker-compose support
+
+scala project:
+
+ * scala 2.11 based project
+ * lombok (slf4j + logback logging)
+ * support fatjar
+ * support maven
+ * support gradle
+ * support testing using junit 4, scalactic, scalatest, specs2
+ * docker / docker-compose support
+
 ## Getting To Know Yeoman
 
  * Yeoman has a heart of gold.
