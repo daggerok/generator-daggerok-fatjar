@@ -14,7 +14,8 @@ Then generate your new project:
 
 ```bash
 yo daggerok-fatjar
-# enter projectDirectory or just press enter
+# enter projectDirectory or just press enter (default: app)
+# chose scala support if needed (default: false)
 cd $projectDirectory
 ```
 
