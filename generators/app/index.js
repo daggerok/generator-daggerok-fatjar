@@ -23,10 +23,15 @@ module.exports = class extends Generator {
         default: 'app'
       },
       {
-        type: 'confirm',
-        name: 'isScalaSupported',
-        message: 'Would you like supports scala?',
-        default: false
+        type: 'list',
+        name: 'projectType',
+        message: 'My friend, what type of project do you want to create today?',
+        choices: [
+          'java',
+          'scala',
+          'java-parent-multi-project',
+        ],
+        default: 'java',
       },
     ];
 
@@ -39,7 +44,7 @@ module.exports = class extends Generator {
   writing() {
 
     const projectDirectory = safety(this.props.projectDirectory);
-    const projectType = this.props.isScalaSupported ? 'scala' : 'java';
+    const projectType = this.props.projectType;
 
     [
       '**/*',

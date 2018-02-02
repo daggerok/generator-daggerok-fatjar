@@ -15,7 +15,7 @@ Then generate your new project:
 ```bash
 yo daggerok-fatjar
 # enter projectDirectory or just press enter (default: app)
-# chose scala support if needed (default: false)
+# chose projectType (default: java)
 cd $projectDirectory
 ```
 
@@ -62,6 +62,13 @@ scala project:
  * support maven
  * support gradle
  * support testing using junit 4, scalactic, scalatest, specs2
+ * docker / docker-compose support
+
+java parent multi project:
+
+ * java 8 based parent multi project
+ * support maven
+ * support gradle
  * docker / docker-compose support
 
 ## Getting To Know Yeoman
