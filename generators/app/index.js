@@ -3,16 +3,17 @@ const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 
-function safety(input) {
-  return (input.replace(/\W+/g, '-') || 'app').trim()
-                                              .toLocaleLowerCase();
-}
+const { version } = require('../../package.json');
+
+const safety = input =>
+  (input.replace(/\W+/g, '-') || 'app')
+    .trim().toLocaleLowerCase();
 
 module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the terrific ' + chalk.red('daggerok-fatjar') + ' generator!'
+      `Welcome to the terrific ${chalk.red('daggerok-fatjar')} generator ${chalk.blue('v' + version)}`
     ));
 
     const prompts = [
