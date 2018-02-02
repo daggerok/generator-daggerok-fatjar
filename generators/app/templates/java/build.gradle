@@ -1,5 +1,6 @@
 buildscript {
   ext {
+    vavrVersion = "0.9.2"
     lombokVersion = "1.16.18"
     slf4jVersion = "1.7.25"
     javaVersion = "1.8"
@@ -42,6 +43,8 @@ repositories {
 }
 
 dependencies {
+
+  compile "io.vavr:vavr:$vavrVersion"
 
   compile "org.slf4j:slf4j-api:$slf4jVersion"
   // compile "org.slf4j:slf4j-jdk14:$slf4jVersion"

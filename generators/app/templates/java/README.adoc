@@ -6,6 +6,7 @@ inside:
 
 . java 8 based project
 . lombok (slf4j + logback logging)
+. vavr (javaslang)
 . support fatjar
 . support maven
 . support gradle

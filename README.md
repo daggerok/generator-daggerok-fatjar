@@ -48,6 +48,7 @@ java project:
 
  * java 8 based project
  * lombok (slf4j + logback logging)
+ * vavr (javaslang)
  * support fatjar
  * support maven
  * support gradle
@@ -67,6 +68,7 @@ scala project:
 java parent multi project:
 
  * java 8 based parent multi project
+ * vavr (javaslang)
  * support maven
  * support gradle
  * docker / docker-compose support
