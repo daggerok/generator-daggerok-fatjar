@@ -1,8 +1,8 @@
 {
   "name": "generator-daggerok-fatjar",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Generate fat-jar java project",
-  "homepage": "https://daggerok.github.io/generator-daggerok-fatjar",
+  "homepage": "https://github.com/daggerok/generator-daggerok-fatjar",
   "author": {
     "name": "Maksim Kostromin",
     "email": "daggerok@gmail.com",

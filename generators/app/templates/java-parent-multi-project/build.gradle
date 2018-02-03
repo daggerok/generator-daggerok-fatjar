@@ -29,7 +29,7 @@ allprojects {
 
 subprojects {
 
-  apply plugin: "base"
+  apply plugin: "java"
 
   sourceCompatibility = targetCompatibility = "$javaVersion"
 
