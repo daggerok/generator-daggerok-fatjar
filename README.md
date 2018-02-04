@@ -73,6 +73,17 @@ java parent multi project:
  * support gradle
  * docker / docker-compose support
 
+java-ee project:
+
+ * java 8 based project
+ * javaee 8.0
+ * lombok (slf4j + logback logging)
+ * vavr (javaslang)
+ * support maven
+ * support gradle
+ * supports testing junit 4 / 5
+ * docker / docker-compose support (JBOSS EAP 7)
+
 ## Getting To Know Yeoman
 
  * Yeoman has a heart of gold.

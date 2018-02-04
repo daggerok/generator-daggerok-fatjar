@@ -29,8 +29,9 @@ module.exports = class extends Generator {
         message: 'My friend, what type of project do you want to create today?',
         choices: [
           'java',
-          'scala',
+          'java-ee',
           'java-parent-multi-project',
+          'scala',
         ],
         default: 'java',
       },
