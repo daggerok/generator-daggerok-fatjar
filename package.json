@@ -1,6 +1,6 @@
 {
   "name": "generator-daggerok-fatjar",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Generate fat-jar java project",
   "homepage": "https://github.com/daggerok/generator-daggerok-fatjar",
   "author": {
@@ -13,6 +13,9 @@
   ],
   "main": "index.js",
   "keywords": [
+    "java",
+    "scala",
+    "java-ee",
     "yeoman-generator"
   ],
   "devDependencies": {
