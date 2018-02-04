@@ -44,33 +44,14 @@ bash mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up
 
 ## What's inside?
 
-java project:
-
- * java 8 based project
- * lombok (slf4j + logback logging)
- * vavr (javaslang)
- * support fatjar
- * support maven
- * support gradle
- * supports testing junit 4 / 5
- * docker / docker-compose support
-
 scala project:
 
- * scala 2.11 based project
+ * scala 2.12 based project
  * lombok (slf4j + logback logging)
  * support fatjar
  * support maven
  * support gradle
  * support testing using junit 4, scalactic, scalatest, specs2
- * docker / docker-compose support
-
-java parent multi project:
-
- * java 8 based parent multi project
- * vavr (javaslang)
- * support maven
- * support gradle
  * docker / docker-compose support
 
 java-ee project:
@@ -83,6 +64,35 @@ java-ee project:
  * support gradle
  * supports testing junit 4 / 5
  * docker / docker-compose support (JBOSS EAP 7)
+
+java parent multi project:
+
+ * java 8 based parent multi project
+ * vavr (javaslang)
+ * support maven
+ * support gradle
+ * docker / docker-compose support
+
+scala_2.11 project:
+
+ * scala 2.11 based project
+ * lombok (slf4j + logback logging)
+ * support fatjar
+ * support maven
+ * support gradle
+ * support testing using junit 4, scalactic, scalatest, specs2
+ * docker / docker-compose support
+
+java project:
+
+ * java 8 based project
+ * lombok (slf4j + logback logging)
+ * vavr (javaslang)
+ * support fatjar
+ * support maven
+ * support gradle
+ * supports testing junit 4 / 5
+ * docker / docker-compose support
 
 ## Getting To Know Yeoman
 

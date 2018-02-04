@@ -1,7 +1,7 @@
 {
   "name": "generator-daggerok-fatjar",
-  "version": "0.6.6",
-  "description": "Generate fat-jar java project",
+  "version": "0.7.0",
+  "description": "Generate fat-jar java / java-ee / scala projects",
   "homepage": "https://github.com/daggerok/generator-daggerok-fatjar",
   "author": {
     "name": "Maksim Kostromin",
@@ -16,6 +16,8 @@
     "java",
     "scala",
     "java-ee",
+    "scala_2.11",
+    "scala_2.12",
     "yeoman-generator"
   ],
   "devDependencies": {
