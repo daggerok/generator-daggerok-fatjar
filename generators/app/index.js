@@ -31,7 +31,7 @@ module.exports = class extends Generator {
           'java',
           'java-ee',
           'java-parent-multi-project',
-          'scala',
+          'scala_2.11',
         ],
         default: 'java',
       },
