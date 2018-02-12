@@ -44,6 +44,18 @@ bash mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up
 
 ## What's inside?
 
+java-ee (micro-profile) project:
+
+ * java 8 based project
+ * javaee 8.0 using wildfly-swarm micro-profile
+ * kotlin support
+ * lombok (slf4j + logback logging)
+ * vavr (javaslang)
+ * support maven
+ * support gradle
+ * supports testing junit 4 / 5
+ * docker / docker-compose support
+
 scala project:
 
  * scala 2.12 based project
