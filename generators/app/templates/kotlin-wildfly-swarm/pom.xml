@@ -15,6 +15,7 @@
     <version.wildfly.swarm>2018.1.0</version.wildfly.swarm>
     <java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <lombok.version>1.16.20</lombok.version>
@@ -49,6 +50,10 @@
     <dependency>
       <groupId>org.wildfly.swarm</groupId>
       <artifactId>logging</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.wildfly.swarm</groupId>
+      <artifactId>ejb</artifactId>
     </dependency>
     <dependency>
       <groupId>org.wildfly.swarm</groupId>
@@ -213,7 +218,7 @@
         </configuration>
       </plugin>
 
-      <!-- Java EE all open -->
+      <!-- Java EE no-arg / all-open -->
       <plugin>
         <artifactId>kotlin-maven-plugin</artifactId>
         <groupId>org.jetbrains.kotlin</groupId>
@@ -225,15 +230,25 @@
           <compilerPlugins>
             <!-- Or "spring" for the Spring support -->
             <plugin>all-open</plugin>
+            <plugin>no-arg</plugin>
           </compilerPlugins>
 
           <pluginOptions>
             <!-- Each annotation is placed on its own line -->
-            <option>all-open:annotation=javax.persistence.Entity</option>
-            <option>all-open:annotation=javax.ejb.Stateless</option>
-            <option>all-open:annotation=javax.inject.Singleton</option>
             <option>all-open:annotation=javax.ws.rs.Path</option>
+            <option>all-open:annotation=javax.ejb.Startup</option>
+            <option>all-open:annotation=javax.ejb.Stateless</option>
+            <option>all-open:annotation=javax.ejb.Singleton</option>
+            <option>all-open:annotation=javax.inject.Singleton</option>
+            <option>all-open:annotation=javax.persistence.Entity</option>
             <option>all-open:annotation=javax.enterprise.context.ApplicationScoped</option>
+            <option>no-arg:annotation=javax.ws.rs.Path</option>
+            <option>no-arg:annotation=javax.ejb.Startup</option>
+            <option>no-arg:annotation=javax.ejb.Stateless</option>
+            <option>no-arg:annotation=javax.ejb.Singleton</option>
+            <option>no-arg:annotation=javax.inject.Singleton</option>
+            <option>no-arg:annotation=javax.persistence.Entity</option>
+            <option>no-arg:annotation=javax.enterprise.context.ApplicationScoped</option>
           </pluginOptions>
         </configuration>
 
@@ -268,6 +283,11 @@
           <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-maven-allopen</artifactId>
+            <version>${kotlin.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-noarg</artifactId>
             <version>${kotlin.version}</version>
           </dependency>
         </dependencies>
