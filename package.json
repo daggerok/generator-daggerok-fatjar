@@ -13,11 +13,17 @@
   ],
   "main": "index.js",
   "keywords": [
+    "mvn",
     "java",
+    "akka",
     "scala",
+    "maven",
+    "gradle",
+    "fatjar",
     "java-ee",
     "scala_2.11",
     "scala_2.12",
+    "wildfly-swarm",
     "yeoman-generator"
   ],
   "devDependencies": {
@@ -38,7 +44,7 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "prepublish": "nsp check"
+    "prepare": "nsp check"
   },
   "repository": "daggerok/generator-daggerok-fatjar"
 }
