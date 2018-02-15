@@ -12,28 +12,28 @@ jdk:
 install: true
 before_script:
 - sudo apt udate -y || true
-- sudo apt install -y --no-install-recommends curl jq libxml2-utils docker-ce python-pip
+- sudo apt install -y --no-install-recommends bash unzip curl jq libxml2-utils docker-ce python-pip
 - sudo pip install docker-compose httpie
 - source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
 script:
-- ./gradlew
+- bash gradlew
 - java -jar ./build/libs/*-all.jar
 #
-- ./gradlew clean installDist
-- ./build/install/<%= projectDirectory %>/bin/<%= projectDirectory %>
+- bash gradlew clean installDist
+- bash ./build/install/<%= projectDirectory %>/bin/<%= projectDirectory %>
 #
-- ./gradlew clean distZip
+- bash gradlew clean distZip
 - unzip -o ./build/distributions/<%= projectDirectory %>-0.0.1.zip -d /tmp
 - bash /tmp/<%= projectDirectory %>-0.0.1/bin/<%= projectDirectory %>
 #
-- ./gradlew clean build composeUp
-- ./gradlew composeDown
+- bash gradlew clean build composeUp
+- bash gradlew composeDown
 #
-- ./mvnw clean package
+- bash mvnw clean package
 - java -jar target/*-all.jar
 #
-- ./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up
-- ./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:down
+- bash mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up
+- bash mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:down
 cache:
   directories:
   - $HOME/.m2
