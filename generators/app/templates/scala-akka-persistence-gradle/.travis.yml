@@ -17,11 +17,15 @@ before_script:
 - source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
 script:
 - bash
-- bash ./build/install/<%= projectDirectory %>/bin/<%= projectDirectory %>
+- bash ./build/install/<%= projectDirectory %>/bin/<%= projectDirectory %> &
+- sleep 5
+- sudo killall -9 java
 #
 - bash gradlew clean distZip
 - unzip -o ./build/distributions/<%= projectDirectory %>-0.0.1.zip -d /tmp
-- bash /tmp/<%= projectDirectory %>-0.0.1/bin/<%= projectDirectory %>
+- bash /tmp/<%= projectDirectory %>-0.0.1/bin/<%= projectDirectory %> &
+- sleep 5
+- sudo killall -9 java
 #
 - bash gradlew clean installDist composeUp
 - bash gradlew composeDown
