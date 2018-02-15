@@ -44,6 +44,19 @@ bash mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up
 
 ## What's inside?
 
+java-akka project
+
+ * java 8 based project
+ * akka-actor
+ * lombok (slf4j + logback logging)
+ * vavr (javaslang)
+ * support fatjar
+ * support maven
+ * support gradle
+ * support application scripts when using gradle
+ * support testing with junit 4 / 5
+ * docker / docker-compose support
+
 java-ee (micro-profile) project:
 
  * java 8 based project
