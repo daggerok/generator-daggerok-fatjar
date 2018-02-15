@@ -62,21 +62,44 @@ module.exports = class extends Generator {
       this.destinationPath(`${projectDirectory}`)
     ));
 
-    [
-      'pom.xml',
-      '.travis.yml',
-      'README.adoc',
-      'settings.gradle',
-      'gradle/Dockerfile',
-      'docker-compose.yaml',
-      'docker-compose-maven.yaml',
-      'docker-compose-gradle.yaml',
+    switch (projectType) {
 
-    ].forEach(path => this.fs.copyTpl(
-      this.templatePath(`${projectType}/${path}`),
-      this.destinationPath(`${projectDirectory}/${path}`),
-      { projectDirectory }
-    ));
+      case 'scala-akka-persistence-gradle':
+
+        [
+          '.travis.yml',
+          'README.adoc',
+          'settings.gradle',
+          'gradle/Dockerfile',
+          'docker-compose.yaml',
+
+        ].forEach(path => this.fs.copyTpl(
+          this.templatePath(`${projectType}/${path}`),
+          this.destinationPath(`${projectDirectory}/${path}`),
+          { projectDirectory }
+        ));
+
+        break;
+
+      default:
+
+        [
+          'pom.xml',
+          '.travis.yml',
+          'README.adoc',
+          'settings.gradle',
+          'gradle/Dockerfile',
+          'docker-compose-maven.yaml',
+          'docker-compose-gradle.yaml',
+
+        ].forEach(path => this.fs.copyTpl(
+          this.templatePath(`${projectType}/${path}`),
+          this.destinationPath(`${projectDirectory}/${path}`),
+          { projectDirectory }
+        ));
+
+        break;
+    }
 
     this.fs.copy(
       this.templatePath(`fuck/gitignore`),
