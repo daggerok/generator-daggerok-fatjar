@@ -30,6 +30,7 @@ module.exports = class extends Generator {
         choices: [
           'java',
           'java-ee',
+          'java-akka',
           'java-parent-multi-project',
           'kotlin-wildfly-swarm',
           'scala',
@@ -61,6 +62,7 @@ module.exports = class extends Generator {
     ));
 
     [
+      '.travis.yml',
       'pom.xml',
       'README.adoc',
       'settings.gradle',

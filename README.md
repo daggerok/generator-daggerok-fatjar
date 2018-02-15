@@ -48,12 +48,14 @@ java-ee (micro-profile) project:
 
  * java 8 based project
  * javaee 8.0 using wildfly-swarm micro-profile
- * kotlin support
- * lombok (slf4j + logback logging)
- * vavr (javaslang)
+ * support fatjar
+ * support executable bash jar
+ * support kotlin
  * support maven
  * support gradle
- * supports testing junit 4 / 5
+ * vavr (javaslang)
+ * lombok (slf4j + logback logging)
+ * support testing with junit 4 / 5
  * docker / docker-compose support
 
 scala project:
@@ -63,6 +65,7 @@ scala project:
  * support fatjar
  * support maven
  * support gradle
+ * support application executable scripts when using gradle
  * support testing using junit 4, scalactic, scalatest, specs2
  * docker / docker-compose support
 
@@ -74,7 +77,7 @@ java-ee project:
  * vavr (javaslang)
  * support maven
  * support gradle
- * supports testing junit 4 / 5
+ * support testing with junit 4 / 5
  * docker / docker-compose support (JBOSS EAP 7)
 
 java parent multi project:
@@ -92,6 +95,7 @@ scala_2.11 project:
  * support fatjar
  * support maven
  * support gradle
+ * support application scripts (gradle shadow plugin)
  * support testing using junit 4, scalactic, scalatest, specs2
  * docker / docker-compose support
 
@@ -103,7 +107,8 @@ java project:
  * support fatjar
  * support maven
  * support gradle
- * supports testing junit 4 / 5
+ * support application scripts when using gradle
+ * support testing with junit 4 / 5
  * docker / docker-compose support
 
 ## Getting To Know Yeoman

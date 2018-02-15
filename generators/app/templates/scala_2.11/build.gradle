@@ -1,8 +1,8 @@
 buildscript {
   ext {
-    lombokVersion = "1.16.20"
-    slf4jVersion = "1.7.25"
     javaVersion = "1.8"
+    slf4jVersion = "1.7.25"
+    lombokVersion = "1.16.20"
     scalaCompatVersion = "2.11"
     scalaVersion = "${scalaCompatVersion}.8"
     scalatestVersion = "${scalaCompatVersion}:3.0.4"
