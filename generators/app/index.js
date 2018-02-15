@@ -35,6 +35,7 @@ module.exports = class extends Generator {
           'kotlin-wildfly-swarm',
           'scala',
           'scala_2.11',
+          'scala-akka-persistence-gradle',
         ],
         default: 'java',
       },
@@ -62,12 +63,14 @@ module.exports = class extends Generator {
     ));
 
     [
-      '.travis.yml',
       'pom.xml',
+      '.travis.yml',
       'README.adoc',
       'settings.gradle',
-      'docker-compose-gradle.yaml',
+      'gradle/Dockerfile',
+      'docker-compose.yaml',
       'docker-compose-maven.yaml',
+      'docker-compose-gradle.yaml',
 
     ].forEach(path => this.fs.copyTpl(
       this.templatePath(`${projectType}/${path}`),

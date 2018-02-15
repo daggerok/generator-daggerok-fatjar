@@ -1,0 +1,30 @@
+service:
+- docker
+sudo: required
+group: travis_lts
+env:
+  global:
+    TERM=dumb
+language: java
+jdk:
+- oraclejdk8
+- openjdk8
+install: true
+before_script:
+- sudo apt udate -y || true
+- sudo apt install -y --no-install-recommends bash unzip curl jq libxml2-utils docker-ce python-pip
+- sudo pip install docker-compose httpie
+- source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
+script:
+- bash
+- bash ./build/install/<%= projectDirectory %>/bin/<%= projectDirectory %>
+#
+- bash gradlew clean distZip
+- unzip -o ./build/distributions/<%= projectDirectory %>-0.0.1.zip -d /tmp
+- bash /tmp/<%= projectDirectory %>-0.0.1/bin/<%= projectDirectory %>
+#
+- bash gradlew clean installDist composeUp
+- bash gradlew composeDown
+cache:
+  directories:
+  - $HOME/.gradle

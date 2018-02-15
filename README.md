@@ -44,6 +44,15 @@ bash mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up
 
 ## What's inside?
 
+scala akka-persistence gradle project
+
+ * scala 2.12 based project
+ * akka-persistence
+ * lombok (slf4j + logback logging)
+ * support gradle and application executable scripts
+ * support testing using junit 4, scalactic, scalatest, specs2
+ * docker / docker-compose support
+
 java-akka project
 
  * java 8 based project
