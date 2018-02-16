@@ -9,11 +9,12 @@ RUN apk --no-cache add busybox-suid bash curl sudo \
 USER appuser
 WORKDIR /home/appuser
 VOLUME /home/appuser
-ENTRYPOINT java -XX:+UnlockExperimentalVMOptions \
-                -XX:+UseCGroupMemoryLimitForHeap \
-                -XshowSettings:vm \
-                -Djava.net.preferIPv4Stack=true \
-                -jar ./app.jar
+ENV JAVA_OPTS="\
+ -XX:+UnlockExperimentalVMOptions \
+ -XX:+UseCGroupMemoryLimitForHeap \
+ -XshowSettings:vm \
+ -Djava.net.preferIPv4Stack=true "
+ENTRYPOINT java ${JAVA_OPTS} -jar ./app.jar
 CMD /bin/bash
 EXPOSE 8080
 HEALTHCHECK --timeout=1s \
