@@ -52,15 +52,35 @@ module.exports = class extends Generator {
     const projectDirectory = safety(this.props.projectDirectory);
     const projectType = this.props.projectType;
 
-    [
-      '**/*',
-      '**/.*',
-      '.*/**/*',
+    switch (projectType) {
 
-    ].forEach(pattern => this.fs.copy(
-      this.templatePath(`${projectType}/${pattern}`),
-      this.destinationPath(`${projectDirectory}`)
-    ));
+      case 'scala-akka-persistence-gradle':
+
+        [
+          '**/*',
+          '**/.*',
+
+        ].forEach(pattern => this.fs.copy(
+          this.templatePath(`${projectType}/${pattern}`),
+          this.destinationPath(`${projectDirectory}`)
+        ));
+
+        break;
+
+      default:
+
+        [
+          '**/*',
+          '**/.*',
+          '.*/**/*',
+
+        ].forEach(pattern => this.fs.copy(
+          this.templatePath(`${projectType}/${pattern}`),
+          this.destinationPath(`${projectDirectory}`)
+        ));
+
+        break;
+    }
 
     switch (projectType) {
 
