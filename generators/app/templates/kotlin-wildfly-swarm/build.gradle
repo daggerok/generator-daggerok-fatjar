@@ -147,8 +147,10 @@ swarm {
   executable = true
 }
 
+def profile = project.hasProperty("profile") ? project.getProperty("profile") : "gradle"
+
 dockerCompose {
-  useComposeFiles = [project.file("docker-compose-gradle.yaml")]
+  useComposeFiles = [project.file("docker-compose-${profile}.yaml")]
   // captureContainersOutput = true
   captureContainersOutput = false
   stopContainers = true

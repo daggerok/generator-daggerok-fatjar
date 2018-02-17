@@ -10,28 +10,21 @@ RUN apk --no-cache --update add busybox-suid bash curl unzip sudo openssh-client
                   "http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip" \
          -O /tmp/jce_policy-8.zip \
  && unzip -o /tmp/jce_policy-8.zip -d /tmp \
- && mv -f ${JAVA_HOME}/lib/security ${JAVA_HOME}/lib/backup-security \
- && mv -f /tmp/UnlimitedJCEPolicyJDK8 ${JAVA_HOME}/lib/security \
+ && mv -f $JAVA_HOME/lib/security $JAVA_HOME/lib/backup-security \
+ && mv -f /tmp/UnlimitedJCEPolicyJDK8 $JAVA_HOME/lib/security \
  && apk del busybox-suid unzip openssh-client shadow wget \
  && rm -rf /var/cache/apk/* /tmp/*
 USER appuser
 WORKDIR /home/appuser
 VOLUME /home/appuser
-ARG JAVA_OPTS_ARGS="\
- -Djava.net.preferIPv4Stack=true \
- -XX:+UnlockExperimentalVMOptions \
- -XX:+UseCGroupMemoryLimitForHeap \
- -XshowSettings:vm "
-ENV JAVA_OPTS="${JAVA_OPTS} ${JAVA_OPTS_ARGS}"
-ENTRYPOINT java ${JAVA_OPTS} -jar ./app.jar
+ENTRYPOINT java -Djava.net.preferIPv4Stack=true \
+                -XX:+UnlockExperimentalVMOptions \
+                -XX:+UseCGroupMemoryLimitForHeap \
+                -XshowSettings:vm \
+                -jar ./app.jar
 CMD /bin/bash
-#ENTRYPOINT java -XX:+UnlockExperimentalVMOptions \
-#                -XX:+UseCGroupMemoryLimitForHeap \
-#                -XshowSettings:vm \
-#                -jar ./app.jar
-#CMD /bin/bash
 #EXPOSE 8080
-#HEALTHCHECK --timeout=1s \
-#            --retries=35 \
+#HEALTHCHECK --timeout=2s \
+#            --retries=22 \
 #            CMD curl -f http://127.0.0.1:8080/actuator/health || exit 1
 COPY --chown=appuser ./target/*.jar ./app.jar

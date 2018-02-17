@@ -53,14 +53,19 @@ dependencies {
   testCompile "org.specs2:specs2-junit_${scalaCompatVersion}:3.7"
 }
 
+def profile = project.hasProperty("profile") ? project.getProperty("profile") : "gradle"
+
 dockerCompose {
-  useComposeFiles = [project.file("docker-compose-gradle.yaml")]
-  captureContainersOutput = true
+  useComposeFiles = [project.file("docker-compose-${profile}.yaml")]
+//  captureContainersOutput = true
+  captureContainersOutput = false
   stopContainers = true
   removeContainers = true
   removeImages = "Local"
   removeVolumes = true
   removeOrphans = true
+  forceRecreate = true
+  waitForTcpPorts = false
   projectName = project.name
 }
 
