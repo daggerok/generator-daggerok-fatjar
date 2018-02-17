@@ -20,10 +20,12 @@
     "maven",
     "gradle",
     "fatjar",
+    "docker",
     "java-ee",
     "scala_2.11",
     "scala_2.12",
     "wildfly-swarm",
+    "docker-compose",
     "yeoman-generator"
   ],
   "devDependencies": {
