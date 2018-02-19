@@ -32,6 +32,7 @@ module.exports = class extends Generator {
           'java-ee',
           'java-akka',
           'java-parent-multi-project',
+          'kotlin-spring-boot',
           'kotlin-wildfly-swarm',
           'scala',
           'scala_2.11',

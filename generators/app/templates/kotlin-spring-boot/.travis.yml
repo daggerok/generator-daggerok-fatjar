@@ -16,24 +16,37 @@ before_script:
 - sudo apt install -y --no-install-recommends bash unzip curl jq libxml2-utils docker-ce python-pip
 - sudo pip install docker-compose httpie
 - source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
+- stop_any 8080 80
 script:
 - bash gradlew
-- java -jar ./build/libs/*-all.jar
+- java -jar ./build/libs/*.jar &
+- wait_for 8080
+- http :8080
+- stop_any 8080 80
 #
-- bash gradlew clean installDist
-- bash ./build/install/<%= projectDirectory %>/bin/<%= projectDirectory %>
+- bash ./build/libs/*.jar &
+- wait_for 8080
+- http :8080
+- stop_any 8080 80
 #
-- bash gradlew clean distZip
-- unzip -o ./build/distributions/<%= projectDirectory %>-0.0.1.zip -d /tmp
-- bash /tmp/<%= projectDirectory %>-0.0.1/bin/<%= projectDirectory %>
-#
-- bash gradlew clean build composeUp
+- bash gradlew composeUp
+- http :8080
 - bash gradlew composeDown
 #
-- bash mvnw clean package
-- java -jar target/*-all.jar
+- bash mvnw
+- java -jar ./target/*.jar &
+- wait_for 8080
+- http :8080
+- stop_any 8080 80
+#
+- bash ./target/*.jar &
+- wait_for 8080
+- http :8080
+- stop_any 8080 80
 #
 - bash mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up
+- sleep 20
+- http :8080
 - bash mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:down
 cache:
   directories:
