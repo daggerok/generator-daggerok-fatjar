@@ -44,6 +44,20 @@ bash mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up
 
 ## What's inside?
 
+kotlin parent multi project:
+
+ * java 8 based parent multi project
+ * support kotlin
+ * support fatjar
+ * support executable bash jar
+ * support kotlin
+ * support maven
+ * support gradle
+ * vavr (javaslang)
+ * lombok (slf4j + logback logging)
+ * support testing with junit 4 / 5
+ * docker / docker-compose support
+
 spring-boot 2 / spring framework 5 project
 
  * java 8 based project
