@@ -12,7 +12,7 @@ jdk:
 - openjdk8
 install: true
 before_script:
-- sudo apt udate -y || true
+- sudo apt update -y || true
 - sudo apt install -y --no-install-recommends bash unzip curl jq libxml2-utils docker-ce python-pip
 - sudo pip install docker-compose httpie
 - source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
