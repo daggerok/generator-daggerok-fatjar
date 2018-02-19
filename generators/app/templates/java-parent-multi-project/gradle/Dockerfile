@@ -18,6 +18,8 @@ USER appuser
 WORKDIR /home/appuser
 VOLUME /home/appuser
 ENTRYPOINT java -Djava.net.preferIPv4Stack=true \
+                -Djboss.bind.address=0.0.0.0 \
+                -Djboss.bind.address.management=0.0.0.0 \
                 -XX:+UnlockExperimentalVMOptions \
                 -XX:+UseCGroupMemoryLimitForHeap \
                 -XshowSettings:vm \

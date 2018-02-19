@@ -18,6 +18,8 @@ USER appuser
 WORKDIR /home/appuser
 VOLUME /home/appuser
 ARG JAVA_OPTS_ARGS="\
+ -Djboss.bind.address=0.0.0.0 \
+ -Djboss.bind.address.management=0.0.0.0 \
  -Djava.net.preferIPv4Stack=true \
  -XX:+UnlockExperimentalVMOptions \
  -XX:+UseCGroupMemoryLimitForHeap \
@@ -25,10 +27,12 @@ ARG JAVA_OPTS_ARGS="\
 ENV JAVA_OPTS="${JAVA_OPTS} ${JAVA_OPTS_ARGS}"
 ENTRYPOINT java ${JAVA_OPTS} -jar ./app.jar
 CMD /bin/bash
-#ENTRYPOINT java -XX:+UnlockExperimentalVMOptions \
+#ENTRYPOINT java -XshowSettings:vm \
+#                -XX:+UnlockExperimentalVMOptions \
 #                -XX:+UseCGroupMemoryLimitForHeap \
-#                -XshowSettings:vm \
 #                -Djava.net.preferIPv4Stack=true \
+#                -Djboss.bind.address.management=0.0.0.0 \
+#                -Djboss.bind.address=0.0.0.0 \
 #                -jar ./app.jar
 #CMD /bin/bash
 EXPOSE 8080
