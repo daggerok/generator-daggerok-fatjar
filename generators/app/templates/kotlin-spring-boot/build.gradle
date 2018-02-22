@@ -107,10 +107,10 @@ dependencies {
   compileOnly("org.projectlombok:lombok")
   testCompileOnly("org.projectlombok:lombok")
 
-  //// Kotlin
-  compile("com.fasterxml.jackson.module:jackson-module-kotlin")
+  // Kotlin
+  compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.4.1")
   compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
-  compile("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
+  testCompile("org.jetbrains.kotlin:kotlin-test:$kotlinVersion")
 
   // junit 4
   testCompile "junit:junit:4.12"
