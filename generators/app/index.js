@@ -39,6 +39,7 @@ module.exports = class extends Generator {
           'scala',
           'scala_2.11',
           'scala-akka-persistence-gradle',
+          'spring-cloud-function-web',
         ],
         default: 'java',
       },

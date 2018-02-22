@@ -44,6 +44,17 @@ bash mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up
 
 ## What's inside?
 
+spring cloud function web project
+
+ * java 8 based spring-cloud-function-web project
+ * spring-boot 2 / spring framework 5
+ * support fatjar
+ * support executable bash jar
+ * support kotlin
+ * support maven
+ * support gradle
+ * docker / docker-compose support
+
 spring-boot 1 / spring framework 4 project
 
  * java 8 based project
