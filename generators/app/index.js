@@ -32,6 +32,7 @@ module.exports = class extends Generator {
           'java-ee',
           'java-akka',
           'java-parent-multi-project',
+          'kotlin',
           'kotlin-parent-multi-project',
           'kotlin-spring-boot',
           'kotlin-spring-boot_1.x',

@@ -220,7 +220,7 @@
         <version>${kotlin.version}</version>
 
         <configuration>
-          <jvmTarget>1.8</jvmTarget>
+          <jvmTarget>${maven.compiler.target}</jvmTarget>
 
           <compilerPlugins>
             <!-- Or "spring" for the Spring support -->

@@ -19,9 +19,9 @@ buildscript {
 plugins {
   id "idea"
   id "java"
-  id "maven"
   id "eclipse"
   id "application"
+  id "maven-publish"
   id "com.github.johnrengelman.shadow" version "2.0.2"
   id "com.avast.gradle.docker-compose" version "0.6.13"
 }
@@ -35,7 +35,20 @@ sourceCompatibility = targetCompatibility = "$javaVersion"
 mainClassName = "daggerok.App"
 shadowJar.mustRunAfter jar
 
-defaultTasks "clean", "build"
+publishing {
+  publications {
+    shadow(MavenPublication) { publication ->
+      project.shadow.component(publication)
+    }
+  }
+  repositories {
+    maven {
+      url "$buildDir/maven-publish"
+    }
+  }
+}
+
+defaultTasks "clean", "build", "installDist", "distZip", "publish"
 
 repositories {
   mavenLocal()
@@ -89,7 +102,7 @@ dockerCompose {
 composeUp.dependsOn assemble
 
 task wrapper(type: Wrapper) {
-  gradleVersion = "4.5.1"
+  gradleVersion = "4.6-rc-2"
   distributionType = "ALL"
 }
 

@@ -44,6 +44,17 @@ bash mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up
 
 ## What's inside?
 
+kotlin fat project
+
+ * java 8 based project
+ * support kotlin
+ * support fatjar
+ * support maven
+ * support gradle
+ * slf4j + logback logging
+ * support application scripts when using gradle
+ * docker / docker-compose support
+
 spring cloud function web project
 
  * java 8 based spring-cloud-function-web project
