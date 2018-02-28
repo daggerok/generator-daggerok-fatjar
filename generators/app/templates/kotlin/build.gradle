@@ -19,7 +19,7 @@ group = "daggerok"
 version = "0.0.1"
 sourceCompatibility = targetCompatibility = "$javaVersion"
 
-mainClassName = "daggerok.App"
+mainClassName = "daggerok.AppKt"
 shadowJar.mustRunAfter jar
 
 defaultTasks "clean", "build", "installDist", "distZip", "publish"
