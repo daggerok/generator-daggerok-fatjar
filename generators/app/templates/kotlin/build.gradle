@@ -77,6 +77,6 @@ publishing {
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = "4.6-rc-2"
+  gradleVersion = "4.6"
   distributionType = "ALL"
 }
