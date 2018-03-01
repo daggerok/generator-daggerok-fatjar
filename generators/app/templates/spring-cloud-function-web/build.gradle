@@ -1,7 +1,7 @@
 buildscript {
   ext {
     javaVersion = "1.8"
-    kotlinVersion = "1.2.21"
+    kotlinVersion = "1.2.30"
     springBootVersion = "2.0.0.RC1"
     springCloudVersion = "Finchley.M6"
     springCloudFunctionVersion = "1.0.0.M3"

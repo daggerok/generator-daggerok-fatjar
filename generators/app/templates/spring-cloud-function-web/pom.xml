@@ -17,7 +17,7 @@
   </parent>
 
   <properties>
-    <kotlin.version>1.2.21</kotlin.version>
+    <kotlin.version>1.2.30</kotlin.version>
     <spring-boot.version>2.0.0.RC1</spring-boot.version>
     <spring-cloud.version>Finchley.M6</spring-cloud.version>
     <spring-cloud-function.version>1.0.0.M3</spring-cloud-function.version>

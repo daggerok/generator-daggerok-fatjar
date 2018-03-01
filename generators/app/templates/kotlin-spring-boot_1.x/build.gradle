@@ -2,7 +2,7 @@ buildscript {
   ext {
     javaVersion = "1.8"
     vavrVersion = "0.9.2"
-    kotlinVersion = "1.2.21"
+    kotlinVersion = "1.2.30"
     springCloudVersion = "Edgware.SR2"
     springBootVersion = "1.5.10.RELEASE"
     hibernateCoreVersion = "4.2.18.Final"
