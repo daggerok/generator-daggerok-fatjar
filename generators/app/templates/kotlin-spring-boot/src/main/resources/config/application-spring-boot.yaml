@@ -1,4 +1,4 @@
 spring:
   output:
-      ansi:
-        enabled: always
+    ansi:
+      enabled: always
