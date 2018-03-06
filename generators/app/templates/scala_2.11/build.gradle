@@ -79,3 +79,15 @@ task wrapper(type: Wrapper) {
 test {
   systemProperties "property": "value"
 }
+
+idea {
+  module {
+    downloadSources = true
+  }
+}
+
+eclipse {
+  classpath {
+    downloadSources = true
+  }
+}

@@ -86,3 +86,15 @@ test {
 clean.doFirst {
   delete "$projectDir/$out"
 }
+
+idea {
+  module {
+    downloadSources = true
+  }
+}
+
+eclipse {
+  classpath {
+    downloadSources = true
+  }
+}

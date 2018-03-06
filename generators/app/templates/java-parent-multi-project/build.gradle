@@ -60,3 +60,15 @@ dockerCompose {
 }
 
 composeUp.dependsOn assemble
+
+idea {
+  module {
+    downloadSources = true
+  }
+}
+
+eclipse {
+  classpath {
+    downloadSources = true
+  }
+}

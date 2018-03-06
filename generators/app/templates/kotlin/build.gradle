@@ -80,3 +80,15 @@ task wrapper(type: Wrapper) {
   gradleVersion = "4.6"
   distributionType = "ALL"
 }
+
+idea {
+  module {
+    downloadSources = true
+  }
+}
+
+eclipse {
+  classpath {
+    downloadSources = true
+  }
+}
