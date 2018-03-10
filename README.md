@@ -44,6 +44,17 @@ bash mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up
 
 ## What's inside?
 
+kotlin java-ee project:
+
+ * javaee 8.0 project
+ * lombok (slf4j + logback logging)
+ * vavr (javaslang)
+ * support kotlin
+ * support maven
+ * support gradle
+ * support testing with junit 4 / 5
+ * docker / docker-compose support (JBOSS Wildfly 12.0.0.Final)
+
 kotlin fat project
 
  * java 8 based project
