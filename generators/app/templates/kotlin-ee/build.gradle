@@ -9,7 +9,6 @@ buildscript {
     junitJupiterVersion = "5.0.2"
     junitPlatformVersion = "1.0.2"
     resteasyVersion = "3.5.0.Final"
-    hibernateCoreVersion = "4.2.18.Final"
   }
   repositories {
     mavenLocal()
@@ -93,27 +92,27 @@ repositories {
 
 dependencies {
 
-  //compile("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
-  compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
-  compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+  //compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.4.1")
+  compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
+  compile("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
 
-  providedCompile "javax:javaee-api:$javaeeVersion"
-  providedCompile "org.jboss.resteasy:resteasy-jaxrs:$resteasyVersion"
-  providedCompile "org.jboss.resteasy:resteasy-multipart-provider:$resteasyVersion"
-  compile "org.jboss.resteasy:resteasy-json-p-provider:$resteasyVersion"
-  //compile "javax.json:javax.json-api:1.0"
-  //compile "org.glassfish:javax.json:1.0.4"
+  providedCompile("javax:javaee-api:$javaeeVersion")
+  providedCompile("org.jboss.resteasy:resteasy-jaxrs:$resteasyVersion")
+  providedCompile("org.jboss.resteasy:resteasy-multipart-provider:$resteasyVersion")
+  providedCompile("org.jboss.resteasy:resteasy-json-p-provider:$resteasyVersion")
+  compile("javax.json:javax.json-api:1.0")
+  compile("org.glassfish:javax.json:1.0.4")
 
-  providedCompile "com.h2database:h2:1.4.196"
-  compile "org.hibernate:hibernate-core:$hibernateCoreVersion"
+  providedCompile("com.h2database:h2:1.4.196")
+  compile("org.hibernate:hibernate-core:4.2.18.Final")
 
-  compile "io.vavr:vavr:$vavrVersion"
-  compileOnly "org.projectlombok:lombok:$lombokVersion"
-  compile "org.slf4j:slf4j-api:$slf4jVersion"
-  compile "org.slf4j:slf4j-jdk14:$slf4jVersion"
+  compile("io.vavr:vavr:$vavrVersion")
+  compileOnly("org.projectlombok:lombok:$lombokVersion")
+  compile("org.slf4j:slf4j-api:$slf4jVersion")
+  compile("org.slf4j:slf4j-jdk14:$slf4jVersion")
 
   // junit 4
-  testCompile "junit:junit:4.12"
+  testCompile("junit:junit:4.12")
   // junit 5
   testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
   // hamcrest asserts, like: assertThat
