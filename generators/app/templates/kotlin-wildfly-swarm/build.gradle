@@ -171,7 +171,7 @@ task wrapper(type: Wrapper) {
 }
 
 test {
-  systemProperties "property": "value"
+  systemProperties "customProperty": "customValue"
 }
 
 idea {

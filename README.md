@@ -53,7 +53,7 @@ kotlin java-ee project:
  * support maven
  * support gradle
  * support testing with junit 4 / 5
- * docker / docker-compose support (JBOSS Wildfly 12.0.0.Final)
+ * docker / docker-compose support (JBOSS EAP 7.1)
 
 kotlin fat project
 
