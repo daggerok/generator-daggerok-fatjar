@@ -8,9 +8,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.*;
 
-import java.util.Date;
-
-import static java.util.Arrays.asList;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Path("")
@@ -45,6 +42,7 @@ public class App extends Application {
   @GET
   @Path("health")
   public Response health() {
+
     return Response.ok(Json.createObjectBuilder()
                            .add("status", "UP")
                            .add("_self", uriInfo.getBaseUriBuilder()
