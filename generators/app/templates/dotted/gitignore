@@ -1,12 +1,12 @@
 .hg
 .gradle
-out
 build
 target
+out
 .idea
 *.iml
 *.ipr
 *.iws
-*.log
+*.log*
 .DS_Store
-*.log
+Thumbs.db

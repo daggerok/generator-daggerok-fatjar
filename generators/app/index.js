@@ -127,10 +127,14 @@ module.exports = class extends Generator {
         break;
     }
 
-    this.fs.copy(
-      this.templatePath(`fuck/gitignore`),
-      this.destinationPath(`${projectDirectory}/.gitignore`)
-    );
+    [
+      'gitignore',
+      'hgignore',
+
+    ].forEach(suffix => this.fs.copy(
+      this.templatePath(`dotted/${suffix}`),
+      this.destinationPath(`${projectDirectory}/.${suffix}`)
+    ));
   }
 
   install() {
