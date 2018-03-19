@@ -110,7 +110,7 @@ module.exports = class extends Generator {
 
         break;
 
-      case 'java-parent-multi-project':
+      case 'java-ee-multi-project':
 
         [
           'pom.xml',
