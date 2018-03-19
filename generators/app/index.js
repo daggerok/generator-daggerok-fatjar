@@ -31,6 +31,7 @@ module.exports = class extends Generator {
           'java',
           'java-ee',
           'java-akka',
+          'java-ee-multi-project',
           'java-parent-multi-project',
           'kotlin',
           'kotlin-ee',
@@ -58,6 +59,7 @@ module.exports = class extends Generator {
     const projectDirectory = safety(this.props.projectDirectory);
     const projectType = this.props.projectType;
 
+    // .mvn workaround
     switch (projectType) {
 
       case 'scala-akka-persistence-gradle':
@@ -88,6 +90,7 @@ module.exports = class extends Generator {
         break;
     }
 
+    // templating substitution
     switch (projectType) {
 
       case 'scala-akka-persistence-gradle':
@@ -98,6 +101,33 @@ module.exports = class extends Generator {
           'settings.gradle',
           'gradle/Dockerfile',
           'docker-compose.yaml',
+
+        ].forEach(path => this.fs.copyTpl(
+          this.templatePath(`${projectType}/${path}`),
+          this.destinationPath(`${projectDirectory}/${path}`),
+          { projectDirectory }
+        ));
+
+        break;
+
+      case 'java-parent-multi-project':
+
+        [
+          'pom.xml',
+          'ejb-data/pom.xml',
+          'ejb-services/pom.xml',
+          'jsp/pom.xml',
+          'rest/pom.xml',
+          'servlet/pom.xml',
+          'web/pom.xml',
+          'ear/pom.xml',
+          '.travis.yml',
+          'README.adoc',
+          'settings.gradle',
+          'ear/.mvn/Dockerfile',
+          'ear/gradle/Dockerfile',
+          'ear/docker-compose-maven.yaml',
+          'ear/docker-compose-gradle.yaml',
 
         ].forEach(path => this.fs.copyTpl(
           this.templatePath(`${projectType}/${path}`),

@@ -44,6 +44,22 @@ bash mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up
 
 ## What's inside?
 
+java-ee multi project:
+
+ * javaee 8.0 project
+ * EAR
+ * EJB3 (business services module: ejb-services)
+ * EJB3 (JPA repositories module: ejb-data with embedded H2database for simplicity)
+ * JAX-RS REST API
+ * WEB/HTML5 static content
+ * Servlet and JSP with EJB usage
+ * no CDI at all, but could be easily added
+ * lombok (slf4j + logback logging)
+ * vavr (javaslang)
+ * support maven
+ * support gradle
+ * docker / docker-compose support (JBOSS EAP 7.1)
+
 kotlin java-ee project:
 
  * javaee 8.0 project
