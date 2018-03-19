@@ -11,7 +11,7 @@ const safety = input =>
 
 module.exports = class extends Generator {
   prompting() {
-    // Have Yeoman greet the user.
+
     this.log(yosay(
       `Welcome to the terrific ${chalk.red('daggerok-fatjar')} generator ${chalk.blue('v' + version)}`
     ));
@@ -31,7 +31,8 @@ module.exports = class extends Generator {
           'java',
           'java-ee',
           'java-akka',
-          'java-ee-multi-project',
+          'java-ee-cdi-full-multi-project',
+          'java-ee-ejb-full-multi-project',
           'java-parent-multi-project',
           'kotlin',
           'kotlin-ee',
@@ -90,7 +91,7 @@ module.exports = class extends Generator {
         break;
     }
 
-    // templating substitution
+    // apply template substitutions
     switch (projectType) {
 
       case 'scala-akka-persistence-gradle':
@@ -110,7 +111,8 @@ module.exports = class extends Generator {
 
         break;
 
-      case 'java-ee-multi-project':
+      case 'java-ee-ejb-full-multi-project':
+      case 'java-ee-cdi-full-multi-project':
 
         [
           'pom.xml',
