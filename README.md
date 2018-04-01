@@ -44,6 +44,15 @@ bash mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up
 
 ## What's inside?
 
+java-ee-faces project:
+
+ * javaee 8.0 project
+ * JSF using mojarrra 2.2.16 faces implementation
+ * lombok (slf4j + logback logging)
+ * support maven
+ * support gradle
+ * docker / docker-compose support (Glassfish 5.0 / JBOSS EAP 7.1)
+
 java-ee CDI full multi project:
 
  * javaee 8.0 project
