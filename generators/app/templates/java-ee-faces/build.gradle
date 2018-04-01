@@ -48,6 +48,8 @@ dependencies {
 
   compile("com.sun.faces:jsf-api:$facesVersion")
   compile("com.sun.faces:jsf-impl:$facesVersion")
+  //// Tomcat requires weld dependency:
+  //compile("org.jboss.weld.servlet:weld-servlet:2.4.7.Final")
   providedCompile("javax:javaee-web-api:$javaeeVersion")
 
   compileOnly("org.projectlombok:lombok:$lombokVersion")
