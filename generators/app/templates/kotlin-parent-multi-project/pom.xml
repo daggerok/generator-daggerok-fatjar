@@ -242,7 +242,7 @@
 
           <archive>
             <manifest>
-              <mainClass>daggerok.App</mainClass>
+              <mainClass>daggerok.AppKt</mainClass>
             </manifest>
           </archive>
         </configuration>

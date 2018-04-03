@@ -44,7 +44,7 @@ allprojects {
 apply plugin: "application"
 apply plugin: "com.github.johnrengelman.shadow"
 
-mainClassName = "daggerok.App"
+mainClassName = "daggerok.AppKt"
 shadowJar.mustRunAfter jar
 */
 
