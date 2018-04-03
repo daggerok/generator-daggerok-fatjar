@@ -1,10 +1,13 @@
 service:
 - docker
-require: sudo
+
 env:
   global:
   - TERM=dumb
+
 language: java
+jdk: oraclejdk8
+
 install: true
 before_script:
 - sudo apt update -y >/dev/null 2>&1 || true
@@ -12,6 +15,7 @@ before_script:
 - sudo pip install docker-compose httpie >/dev/null 2>&1
 - source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
 - stop_any 8080 80
+
 script:
 # maven
 - bash ./mvnw >/dev/null 2>&1
@@ -48,6 +52,7 @@ script:
 - http :8080/jsp/
 - bash ./gradlew -Pprofile=maven composeDown >/dev/null 2>&1
 - stop_any 8080 80
+
 cache:
   directories:
   - $HOME/.m2

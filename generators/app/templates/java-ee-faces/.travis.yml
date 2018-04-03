@@ -31,7 +31,7 @@ script:
 - http :9990/console/index.html
 - bash ./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:down >/dev/null 2>&1
 
-#cache:
-#  directories:
-#  - $HOME/.m2
-#  - $HOME/.gradle
+cache:
+  directories:
+  - $HOME/.m2
+  - $HOME/.gradle
