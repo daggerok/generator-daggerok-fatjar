@@ -18,7 +18,7 @@
 
   <properties>
     <vavr.version>0.9.2</vavr.version>
-    <kotlin.version>1.2.30</kotlin.version>
+    <kotlin.version>1.2.31</kotlin.version>
     <lombok.version>1.16.20</lombok.version>
     <spring-cloud.version>Finchley.M6</spring-cloud.version>
     <spring-boot.version>${project.parent.version}</spring-boot.version>
