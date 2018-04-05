@@ -12,7 +12,7 @@
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>1.5.10.RELEASE</version>
-    <relativePath/> <!-- lookup parent from repository -->
+    <relativePath/>
   </parent>
 
   <properties>
@@ -34,15 +34,9 @@
   </properties>
 
   <dependencies>
-    <!-- spring-boot -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -60,7 +54,6 @@
       <optional>true</optional>
     </dependency>
     -->
-
     <!-- JPA (+embedded) -->
     <!--
     <dependency>
@@ -85,7 +78,6 @@
       <version>${hibernate.core.version}</version>
     </dependency>
     -->
-
     <!-- Mongo (+embedded) -->
     <!--
     <dependency>
@@ -97,7 +89,6 @@
       <artifactId>de.flapdoodle.embed.mongo</artifactId>
     </dependency>
     -->
-
     <!-- Kafka (+embedded) -->
     <!--
     <dependency>
@@ -122,8 +113,8 @@
       <scope>test</scope>
     </dependency>
     -->
-
     <!-- In java we trust -->
+    <!--
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -134,31 +125,37 @@
       <artifactId>vavr</artifactId>
       <version>${vavr.version}</version>
     </dependency>
-
+    -->
     <!-- Kotlin -->
     <!--
+    <dependency>
+      <groupId>com.fasterxml.jackson.module</groupId>
+      <artifactId>jackson-module-kotlin</artifactId>
+    </dependency>
+    -->
     <dependency>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-reflect</artifactId>
         <version>${kotlin.version}</version>
-    </dependency>
-    -->
-    <dependency>
-      <groupId>com.fasterxml.jackson.module</groupId>
-      <artifactId>jackson-module-kotlin</artifactId>
     </dependency>
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-stdlib-jdk8</artifactId>
       <version>${kotlin.version}</version>
     </dependency>
+
+    <!-- testing -->
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-test</artifactId>
       <version>${kotlin.version}</version>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
     <!-- junit 4 -->
     <dependency>
       <groupId>junit</groupId>
@@ -209,7 +206,7 @@
         <configuration>
           <executable>true</executable>
         </configuration>
-      </plugin><!-- Java spring no-arg / all-open -->
+      </plugin>
       <plugin>
         <artifactId>kotlin-maven-plugin</artifactId>
         <groupId>org.jetbrains.kotlin</groupId>
@@ -219,14 +216,12 @@
           <jvmTarget>${maven.compiler.target}</jvmTarget>
 
           <compilerPlugins>
-            <!-- Or "spring" for the Spring support -->
             <plugin>all-open</plugin>
             <plugin>no-arg</plugin>
             <plugin>spring</plugin>
           </compilerPlugins>
 
           <pluginOptions>
-            <!-- Each annotation is placed on its own line -->
             <option>all-open:annotation=javax.persistence.Entity</option>
             <option>no-arg:annotation=javax.persistence.Entity</option>
           </pluginOptions>
@@ -278,12 +273,10 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.5.1</version>
         <executions>
-          <!-- Replacing default-compile as it is treated specially by maven -->
           <execution>
             <id>default-compile</id>
             <phase>none</phase>
           </execution>
-          <!-- Replacing default-testCompile as it is treated specially by maven -->
           <execution>
             <id>default-testCompile</id>
             <phase>none</phase>
@@ -334,7 +327,6 @@
         <executions>
           <execution>
             <id>up</id>
-            <!--<phase>process-resources</phase>-->
             <phase>verify</phase>
             <goals>
               <goal>up</goal>
@@ -342,7 +334,6 @@
           </execution>
           <execution>
             <id>down</id>
-            <!--<phase>test</phase>-->
             <phase>verify</phase>
             <goals>
               <goal>down</goal>
@@ -359,6 +350,7 @@
     </plugins>
   </build>
 
+  <!--
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -370,5 +362,6 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+  -->
 
 </project>

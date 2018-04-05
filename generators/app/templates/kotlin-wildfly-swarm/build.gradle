@@ -18,12 +18,11 @@ buildscript {
   dependencies {
     classpath("org.junit.platform:junit-platform-gradle-plugin:$junitPlatformVersion")
     classpath("org.wildfly.swarm:wildfly-swarm-gradle-plugin:$wildflySwarmVersion")
-    classpath("io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE")
   }
 }
 
 plugins {
-//  id "ear"
+  //id "ear"
   id "war"
   id "idea"
   id "maven"
@@ -31,11 +30,11 @@ plugins {
   id "org.jetbrains.kotlin.jvm" version "1.2.31"
   id "org.jetbrains.kotlin.plugin.noarg" version "1.2.31"
   id "org.jetbrains.kotlin.plugin.allopen" version "1.2.31"
+  id "io.spring.dependency-management" version "1.0.5.RELEASE"
   id "com.avast.gradle.docker-compose" version "0.6.13"
 }
 
 apply plugin: "wildfly-swarm"
-apply plugin: "io.spring.dependency-management"
 apply plugin: "org.junit.platform.gradle.plugin"
 
 group = "daggerok"

@@ -33,20 +33,9 @@
   </properties>
 
   <dependencies>
-    <!-- spring-boot -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-webflux</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.projectreactor</groupId>
-      <artifactId>reactor-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -64,7 +53,6 @@
       <optional>true</optional>
     </dependency>
     -->
-
     <!-- JPA (+embedded) -->
     <!--
     <dependency>
@@ -89,7 +77,6 @@
       <version>${hibernate.core.version}</version>
     </dependency>
     -->
-
     <!-- Mongo (+embedded) -->
     <!--
     <dependency>
@@ -101,7 +88,6 @@
       <artifactId>de.flapdoodle.embed.mongo</artifactId>
     </dependency>
     -->
-
     <!-- Kafka (+embedded) -->
     <!--
     <dependency>
@@ -126,8 +112,8 @@
       <scope>test</scope>
     </dependency>
     -->
-
     <!-- In java we trust -->
+    <!--
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -138,7 +124,7 @@
       <artifactId>vavr</artifactId>
       <version>${vavr.version}</version>
     </dependency>
-
+    -->
     <!-- Kotlin -->
     <dependency>
       <groupId>com.fasterxml.jackson.module</groupId>
@@ -154,13 +140,23 @@
       <artifactId>kotlin-reflect</artifactId>
       <version>${kotlin.version}</version>
     </dependency>
+
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-test</artifactId>
       <version>${kotlin.version}</version>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>io.projectreactor</groupId>
+      <artifactId>reactor-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
     <!-- junit 4 -->
     <dependency>
       <groupId>junit</groupId>
@@ -223,14 +219,12 @@
           <jvmTarget>${maven.compiler.target}</jvmTarget>
 
           <compilerPlugins>
-            <!-- Or "spring" for the Spring support -->
             <plugin>all-open</plugin>
             <plugin>no-arg</plugin>
             <plugin>spring</plugin>
           </compilerPlugins>
 
           <pluginOptions>
-            <!-- Each annotation is placed on its own line -->
             <option>all-open:annotation=javax.persistence.Entity</option>
             <option>no-arg:annotation=javax.persistence.Entity</option>
           </pluginOptions>
@@ -372,7 +366,7 @@
         <scope>import</scope>
         <type>pom</type>
       </dependency>
-
+      <!--
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-dependencies</artifactId>
@@ -380,45 +374,8 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      -->
     </dependencies>
   </dependencyManagement>
-
-  <repositories>
-    <repository>
-      <id>spring-snapshots</id>
-      <name>Spring Snapshots</name>
-      <url>https://repo.spring.io/snapshot</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>spring-milestones</id>
-      <name>Spring Milestones</name>
-      <url>https://repo.spring.io/milestone</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>spring-snapshots</id>
-      <name>Spring Snapshots</name>
-      <url>https://repo.spring.io/snapshot</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </pluginRepository>
-    <pluginRepository>
-      <id>spring-milestones</id>
-      <name>Spring Milestones</name>
-      <url>https://repo.spring.io/milestone</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
 
 </project>

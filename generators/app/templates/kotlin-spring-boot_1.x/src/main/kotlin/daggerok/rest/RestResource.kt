@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping(produces = [APPLICATION_JSON_UTF8_VALUE])
-class Web {
+class RestResource {
 
   @GetMapping(path = ["", "/", "/{name}"])
-  fun index(@PathVariable(required = false) name: String? = null)
-        = mapOf("hello" to "${name ?: "world"}!")
+  fun index(@PathVariable(required = false) name: String? = null) =
+      mapOf("hello" to "${name ?: "world"}!")
 }
