@@ -44,6 +44,8 @@ repositories {
   mavenCentral()
 }
 
+compileJava.dependsOn(processResources)
+
 dependencies {
 
   compile("com.sun.faces:jsf-api:$facesVersion")
@@ -52,8 +54,8 @@ dependencies {
   //compile("org.jboss.weld.servlet:weld-servlet:2.4.7.Final")
   providedCompile("javax:javaee-web-api:$javaeeVersion")
 
-  compileOnly("org.projectlombok:lombok:$lombokVersion")
-  testCompileOnly("org.projectlombok:lombok:$lombokVersion")
+  annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+  //testCompileOnly("org.projectlombok:lombok:$lombokVersion")
   compile("org.slf4j:slf4j-api:$slf4jVersion")
   compile("org.slf4j:slf4j-jdk14:$slf4jVersion")
 

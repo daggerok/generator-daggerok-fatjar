@@ -90,6 +90,8 @@ repositories {
   mavenCentral()
 }
 
+compileJava.dependsOn(processResources)
+
 dependencies {
 
   //compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.5")
@@ -107,11 +109,11 @@ dependencies {
   //compile("org.hibernate:hibernate-core:4.2.18.Final")
 
   compile("io.vavr:vavr:$vavrVersion")
-  compileOnly("org.projectlombok:lombok:$lombokVersion")
+  annotationProcessor("org.projectlombok:lombok:$lombokVersion")
   compile("org.slf4j:slf4j-api:$slf4jVersion")
   compile("org.slf4j:slf4j-jdk14:$slf4jVersion")
 
-  testCompileOnly("org.projectlombok:lombok:$lombokVersion")
+  //testCompileOnly("org.projectlombok:lombok:$lombokVersion")
   testCompile("org.jetbrains.kotlin:kotlin-test:$kotlinVersion")
   testCompile("junit:junit:4.12")
   testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")

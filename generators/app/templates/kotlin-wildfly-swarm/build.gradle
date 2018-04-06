@@ -94,6 +94,8 @@ repositories {
   mavenCentral()
 }
 
+compileJava.dependsOn(processResources)
+
 dependencies {
 
   compile("org.wildfly.swarm:microprofile")
@@ -117,7 +119,7 @@ dependencies {
   compile "org.slf4j:slf4j-jdk14:$slf4jVersion"
 
   compile "io.vavr:vavr:$vavrVersion"
-  compileOnly "org.projectlombok:lombok:$lombokVersion"
+  annotationProcessor "org.projectlombok:lombok:$lombokVersion"
 
   // junit 4
   testCompile "junit:junit:4.12"
@@ -133,7 +135,7 @@ dependencies {
   testRuntime("org.junit.platform:junit-platform-launcher:$junitPlatformVersion")
 
   testCompileOnly("org.apiguardian:apiguardian-api:1.0.0")
-  testCompileOnly("org.projectlombok:lombok:$lombokVersion")
+  //testCompileOnly("org.projectlombok:lombok:$lombokVersion")
 }
 
 dependencyManagement {

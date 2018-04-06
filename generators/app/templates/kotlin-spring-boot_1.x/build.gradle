@@ -59,13 +59,15 @@ repositories {
   mavenCentral()
 }
 
+compileJava.dependsOn(processResources)
+
 dependencies {
 
   // spring-boot
   compile("org.springframework.boot:spring-boot-starter-web")
   compile("org.springframework.boot:spring-boot-starter-actuator")
   //runtime("org.springframework.boot:spring-boot-devtools")
-  //compileOnly("org.springframework.boot:spring-boot-configuration-processor")
+  //annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
   //// JPA (+embedded)
   //runtime("com.h2database:h2")
@@ -87,8 +89,8 @@ dependencies {
 
   // In java we trust...
   //compile("io.vavr:vavr:$vavrVersion")
-  //compileOnly("org.projectlombok:lombok")
-  //testCompileOnly("org.projectlombok:lombok")
+  //annotationProcessor("org.projectlombok:lombok")
+  ////testCompileOnly("org.projectlombok:lombok")
 
   // Kotlin
   compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.5")

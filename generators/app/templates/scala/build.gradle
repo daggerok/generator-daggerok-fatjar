@@ -51,6 +51,8 @@ repositories {
   mavenCentral()
 }
 
+compileJava.dependsOn(processResources)
+
 dependencies {
 
   compile "org.slf4j:slf4j-api:$slf4jVersion"
@@ -58,10 +60,10 @@ dependencies {
   compile "org.slf4j:jul-to-slf4j:$slf4jVersion"
   compile "org.slf4j:log4j-over-slf4j:$slf4jVersion"
   compile "ch.qos.logback:logback-classic:1.2.3"
-  compileOnly "org.projectlombok:lombok:$lombokVersion"
+  annotationProcessor "org.projectlombok:lombok:$lombokVersion"
 
   testCompile "junit:junit:$junit4Version"
-  testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+  //testCompileOnly "org.projectlombok:lombok:$lombokVersion"
 
   compile "org.scala-lang:scala-library:$scalaVersion"
 
