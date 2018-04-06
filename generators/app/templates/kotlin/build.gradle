@@ -61,7 +61,7 @@ dependencies {
   compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
   compile("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
   //testCompile("org.jetbrains.kotlin:kotlin-test:$kotlinVersion")
-  //compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.4.1")
+  //compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.5")
 }
 
 def profile = project.hasProperty("profile") ? project.getProperty("profile") : "gradle"

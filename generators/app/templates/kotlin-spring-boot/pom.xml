@@ -9,19 +9,12 @@
   <version>0.0.1</version>
   <packaging>jar</packaging>
 
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.0.1.RELEASE</version>
-    <relativePath/> <!-- lookup parent from repository -->
-  </parent>
-
   <properties>
     <vavr.version>0.9.2</vavr.version>
     <kotlin.version>1.2.31</kotlin.version>
     <lombok.version>1.16.20</lombok.version>
     <spring-cloud.version>Finchley.M9</spring-cloud.version>
-    <spring-boot.version>${project.parent.version}</spring-boot.version>
+    <spring-boot.version>2.0.1.RELEASE</spring-boot.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
     <hibernate.core.version>4.2.18.Final</hibernate.core.version>
@@ -31,6 +24,27 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <junit4.version>4.12</junit4.version>
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+      <!--
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      -->
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
     <dependency>
@@ -53,8 +67,7 @@
       <optional>true</optional>
     </dependency>
     -->
-    <!-- JPA (+embedded) -->
-    <!--
+    <!-- JPA (+embedded)
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
@@ -69,16 +82,14 @@
       <artifactId>spring-boot-starter-data-rest</artifactId>
     </dependency>
     -->
-    <!-- Hibernate UUID -->
-    <!--
+    <!-- Hibernate UUID
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>${hibernate.core.version}</version>
     </dependency>
     -->
-    <!-- Mongo (+embedded) -->
-    <!--
+    <!-- Mongo (+embedded)
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
@@ -88,8 +99,7 @@
       <artifactId>de.flapdoodle.embed.mongo</artifactId>
     </dependency>
     -->
-    <!-- Kafka (+embedded) -->
-    <!--
+    <!-- Kafka (+embedded)
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-stream</artifactId>
@@ -112,8 +122,7 @@
       <scope>test</scope>
     </dependency>
     -->
-    <!-- In java we trust -->
-    <!--
+    <!-- In java we trust
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -143,7 +152,7 @@
 
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-test</artifactId>
+      <artifactId>kotlin-junit-test</artifactId>
       <version>${kotlin.version}</version>
       <scope>test</scope>
     </dependency>
@@ -199,37 +208,25 @@
 
   <build>
     <defaultGoal>clean package</defaultGoal>
-
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring-boot.version}</version>
         <configuration>
           <executable>true</executable>
         </configuration>
       </plugin>
-
-      <!-- Java spring no-arg / all-open -->
       <plugin>
         <artifactId>kotlin-maven-plugin</artifactId>
         <groupId>org.jetbrains.kotlin</groupId>
         <version>${kotlin.version}</version>
-
         <configuration>
           <jvmTarget>${maven.compiler.target}</jvmTarget>
-
           <compilerPlugins>
-            <plugin>all-open</plugin>
-            <plugin>no-arg</plugin>
             <plugin>spring</plugin>
           </compilerPlugins>
-
-          <pluginOptions>
-            <option>all-open:annotation=javax.persistence.Entity</option>
-            <option>no-arg:annotation=javax.persistence.Entity</option>
-          </pluginOptions>
         </configuration>
-
         <executions>
           <execution>
             <id>compile</id>
@@ -256,7 +253,6 @@
             </configuration>
           </execution>
         </executions>
-
         <dependencies>
           <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -270,18 +266,15 @@
           </dependency>
         </dependencies>
       </plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.5.1</version>
         <executions>
-          <!-- Replacing default-compile as it is treated specially by maven -->
           <execution>
             <id>default-compile</id>
             <phase>none</phase>
           </execution>
-          <!-- Replacing default-testCompile as it is treated specially by maven -->
           <execution>
             <id>default-testCompile</id>
             <phase>none</phase>
@@ -298,17 +291,10 @@
           </execution>
         </executions>
       </plugin>
-
       <!-- junit 5 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <!--
-          there are issues with 2.20.1 version
-          The junit-platform-surefire-provider is not compatible with version 2.20 of the maven-surefire-plugin.
-          see https://github.com/junit-team/junit5/issues/809
-        -->
-        <!--<version>2.20.1</version>-->
         <version>2.19.1</version>
         <dependencies>
           <dependency>
@@ -323,7 +309,6 @@
           </dependency>
         </dependencies>
       </plugin>
-
       <!-- docker -->
       <plugin>
         <groupId>com.dkanejs.maven.plugins</groupId>
@@ -332,16 +317,14 @@
         <executions>
           <execution>
             <id>up</id>
-            <!--<phase>process-resources</phase>-->
-            <phase>verify</phase>
+            <phase>verify</phase><!--<phase>process-resources</phase>-->
             <goals>
               <goal>up</goal>
             </goals>
           </execution>
           <execution>
             <id>down</id>
-            <!--<phase>test</phase>-->
-            <phase>verify</phase>
+            <phase>verify</phase><!--<phase>test</phase>-->
             <goals>
               <goal>down</goal>
             </goals>
@@ -356,26 +339,5 @@
       </plugin>
     </plugins>
   </build>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>${spring-boot.version}</version>
-        <scope>import</scope>
-        <type>pom</type>
-      </dependency>
-      <!--
-      <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-dependencies</artifactId>
-        <version>${spring-cloud.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      -->
-    </dependencies>
-  </dependencyManagement>
 
 </project>

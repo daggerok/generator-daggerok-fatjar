@@ -86,16 +86,6 @@ subprojects {
     }
   }
 
-  /*
-  allOpen {
-    annotation("javax.persistence.Entity")
-  }
-
-  noArg {
-    annotation("javax.persistence.Entity")
-  }
-  */
-
   apply plugin: "org.junit.platform.gradle.plugin"
 
   test {
@@ -120,11 +110,11 @@ subprojects {
     compile("ch.qos.logback:logback-classic:1.2.3")
 
     // Kotlin
-    compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.4.1")
+    compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.5")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
     compile("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
 
-    // junit 4
+    testCompile("org.jetbrains.kotlin:kotlin-junit-test:$kotlinVersion")
     testCompile("junit:junit:4.12")
     // junit 5
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")

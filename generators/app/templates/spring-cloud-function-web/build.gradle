@@ -16,9 +16,7 @@ plugins {
   id "org.jetbrains.kotlin.jvm" version "1.2.31"
   id "org.springframework.boot" version "2.0.1.RELEASE"
   id "com.avast.gradle.docker-compose" version "0.6.13"
-  id "org.jetbrains.kotlin.plugin.noarg" version "1.2.31"
   id "org.jetbrains.kotlin.plugin.spring" version "1.2.31"
-  id "org.jetbrains.kotlin.plugin.allopen" version "1.2.31"
   id "io.spring.dependency-management" version "1.0.5.RELEASE"
 }
 
@@ -47,17 +45,15 @@ defaultTasks "clean", "build"
 repositories {
   mavenLocal()
   mavenCentral()
-  maven { url "https://repo.spring.io/snapshot" }
-  maven { url "https://repo.spring.io/milestone" }
 }
 
 dependencies {
 
   compile("org.springframework.cloud:spring-cloud-function-web:$springCloudFunctionVersion")
   compile("org.springframework.boot:spring-boot-starter-actuator")
+  compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.5")
   compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
   //compile("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
-  compile("com.fasterxml.jackson.module:jackson-module-kotlin")
 }
 
 dependencyManagement {
