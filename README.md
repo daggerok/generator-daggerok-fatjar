@@ -1,4 +1,4 @@
-# DEPRECATED. Use jvm generator instead `npm i -g generator-jvm@latest`
+# DEPRECATED. Use jvm generator instead: `npm i -g generator-jvm@latest`
 
 ## generator-daggerok-fatjar [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > Generate fatjar project
