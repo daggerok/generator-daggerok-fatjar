@@ -1,6 +1,6 @@
 {
   "name": "generator-daggerok-fatjar",
-  "version": "0.19.17",
+  "version": "1.0.0",
   "description": "DEPRECATED. Use jvm generator instead. Old description: Generate fat-jar java / java-ee / scala projects",
   "homepage": "https://github.com/daggerok/generator-daggerok-fatjar",
   "author": {
