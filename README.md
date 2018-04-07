@@ -1,4 +1,6 @@
-# generator-daggerok-fatjar [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# DEPRECATED in oner to new [jvm](https://github.com/daggerok/generator-jvm) generator
+
+## generator-daggerok-fatjar [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > Generate fatjar project
 
 ## Installation
